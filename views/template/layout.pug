@@ -23,12 +23,13 @@ html(lang="en")
       each style in css
         link(rel='stylesheet' href=style)
   body
-    script(src='./js/rye.min.js')
     include ../components/header.pug
     main.main
       block content
     include ../components/footer.pug
-    script(src='./js/main.min.js')
-    if typeof js !== "undefined"
+      
+  script(src='./js/rye.min.js')
+  script(src='./js/main.min.js')
+  if typeof js !== "undefined"
       each scripts in js
         script(src=scripts)
