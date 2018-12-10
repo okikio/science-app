@@ -48,7 +48,7 @@ $(document).ready(function() {
     });
     setTimeout(function() {
         $("div.cover").removeClass("load");
-        $("a[href^='/']").click(function(e) {
+        $("a[href|='/']").click(function(e) {
             $("div.cover").addClass("load");
         });
     }, 500);
