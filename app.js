@@ -18,53 +18,17 @@ var routes = require("./render.min")["route"];
 var routeList = routes["routes"];
 var errors = routes["errors"];
 
-var filesToCache = [
-        '/',
-        '/about',
-        '/health-policies-and-tech',
-        '/connections',
-        '/references'
-    ]
-    .concat(
-        map_cache("/images"),
-        map_cache("/js"),
-        map_cache("/css"),
-        map_cache("/fonts"));
-
-function map_cache(path) {
-    var _path = __dirname + "/public" + (path + "");
-    const filesNames = fileList(_path, path + "/");
-    return filesNames
-}
-
-function fileList(dir, _path) {
-    let path_ = _path || "";
-    return fs.readdirSync(dir).reduce(function(list, file) {
-        var name = path.join(dir, file);
-        var isDir = fs.statSync(name).isDirectory();
-        return list.concat(isDir ? fileList(name, _path + file + "/") : [_path + file]);
-    }, []);
-}
-
-var begin = ['CACHE MANIFEST', '#v0.0.2 change this to force update\n', '# Cache', 'CACHE:\n'].join("\n");
-var end = ['\n\nNETWORK:', '*\n', 'FALLBACK:', '/ /'].join("\n");
-fs.writeFile(__dirname + '/public/app.cache', (begin + filesToCache.join('\n') + end), function(err) {
-    if (err) { throw err; }
-});
-
-fs.writeFile(__dirname + '/client/js/cachelist.js', "var filesToCache = " + JSON.stringify(filesToCache) + ";", function(err) {
-    if (err) { throw err; }
-});
 
 app.locals = {
     getVersionedPath: staticify.getVersionedPath
 };
 
+// _cache();
 // Compress/GZIP Server
 app.use(compress());
 app.use(staticify.middleware);
 app.use(function(req, res, next) {
-    req.url = req.url.replace(/\/([^\/]+)\.[0-9a-f]+\.(css|js|jpg|png|gif|svg|.cache)$/, '/$1.$2');
+    req.url = req.url.replace(/\/([^\/]+)\.[0-9a-f]+\.(css|js|jpg|png|gif|svg|cache)$/, '/$1.$2');
     next();
 });
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: '30 days' }));
@@ -102,5 +66,45 @@ _.each(errors, function(_router, route, obj) {
         res.render('error', _router);
     });
 });
+
+function _cache () {
+    var filesToCache = [
+            '/',
+            '/about',
+            '/health-policies-and-tech',
+            '/connections',
+            '/references'
+        ]
+        .concat(
+            map_cache("/images"),
+            map_cache("/js"),
+            map_cache("/css"),
+            map_cache("/fonts"));
+    
+    function map_cache(path) {
+        var _path = __dirname + "/public" + (path + "");
+        const filesNames = fileList(_path, path + "/");
+        return filesNames
+    }
+    
+    function fileList(dir, _path) {
+        let path_ = _path || "";
+        return fs.readdirSync(dir).reduce(function(list, file) {
+            var name = path.join(dir, file);
+            var isDir = fs.statSync(name).isDirectory();
+            return list.concat(isDir ? fileList(name, _path + file + "/") : [_path + file]);
+        }, []);
+    }
+    
+    var begin = ['CACHE MANIFEST', '#v0.0.2 change this to force update\n', '# Cache', 'CACHE:\n'].join("\n");
+    var end = ['\n\nNETWORK:', '*\n', 'FALLBACK:', '/ /'].join("\n");
+    fs.writeFile(__dirname + '/public/app.cache', (begin + filesToCache.join('\n') + end), function(err) {
+        if (err) { throw err; }
+    });
+    
+    fs.writeFile(__dirname + '/client/js/cachelist.js', "var filesToCache = " + JSON.stringify(filesToCache) + ";", function(err) {
+        if (err) { throw err; }
+    });
+}
 
 module.exports = app;

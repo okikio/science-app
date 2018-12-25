@@ -7,7 +7,7 @@ html(lang="en" manifest='/app.cache')
     meta(http-equiv="Cache-Control" content="max-age=30 days")
     meta(charset='UTF-8')
     
-    link(rel='stylesheet' async href=getVersionedPath('/fonts/fonts.min.css'))
+    link(rel='stylesheet' href=getVersionedPath('/fonts/fonts.min.css'))
     link(rel='stylesheet' href=getVersionedPath('/css/main.min.css'))
     
     title= title
@@ -48,7 +48,7 @@ html(lang="en" manifest='/app.cache')
     include ../components/footer.pug
     script(src=getVersionedPath('/js/jquery.min.js'))
     script(src=getVersionedPath('/js/main.min.js'))
-    script(src='/js/cache.min.js')
+    script(src='/js/cache.min.js' defer)
     if typeof js !== "undefined"
       each scripts in js
         script(src=getVersionedPath(scripts) defer)
