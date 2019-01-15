@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var minifyCSS = require('gulp-csso');
-var imagemin = require('gulp-imagemin');
+// var imagemin = require('gulp-imagemin');
 
 function render(cb) {
     return gulp.src('render.js')
@@ -28,6 +28,7 @@ function css() {
         .pipe(gulp.dest('public/css'));
 }
 
+/*
 function image() {
     var path_ = 'client/assets/images/*.';
     var list = [path_ + 'jpg', path_ + 'png', path_ + 'svg', path_ + 'ico', path_ + 'jpeg'];
@@ -40,8 +41,9 @@ function image() {
     return gulp.src(list)
         .pipe(imagemin())
         .pipe(gulp.dest('public/images/logo'))
-}
+}*/
 
+/*
 function font() {
     var path_ = 'client/assets/fonts/*.';
     gulp.src(path_ + 'css')
@@ -56,12 +58,12 @@ function font() {
         .pipe(imagemin())
         .pipe(gulp.dest('public/fonts'));
         
-}
+}*/
 
 gulp.task('render', render);
-gulp.task('image', image);
-gulp.task('font', font);
+// gulp.task('image', image);
+// gulp.task('font', font);
 gulp.task('css', css);
 gulp.task('js', js);
 
-gulp.task('default', function(cb) { font(); image(); js(); css(); render(cb); });
+gulp.task('default', function(cb) { js(); css(); render(cb); });
