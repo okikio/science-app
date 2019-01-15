@@ -7,7 +7,7 @@ mixin render(val, layNum)
     if val.tile
       section.tile.tile-small
         section.tile-image
-          load-img.tile-img(src=getVersionedPath(val.tile.src) alt=val.tile.alt)
+          load-img.tile-img(src=val.tile.src alt=val.tile.alt)
         footer.tile-footer
           h2.tile-title= val.tile.title
     else
@@ -21,11 +21,11 @@ mixin render(val, layNum)
               span.layer-content-txt= val.details        
           if val.img
             section.layout-padding-vert
-              load-img.layer-img(src=getVersionedPath(val.img.src) alt=val.img.alt)
+              load-img.layer-img(src=val.img.src alt=val.img.alt)
         
 section.layer-content
   section.layer-hero
-    load-img.layer-hero-img(src=getVersionedPath(hero.src) alt=hero.alt)
+    load-img.layer-hero-img(src=hero.src alt=hero.alt)
     span.layer-hero-img-txt= title
   section.layer-shade
   section.layer-block.layout-padding-horz-small.layout-padding-vert-large-bottom

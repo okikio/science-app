@@ -3,7 +3,7 @@ extends template/layout
 block content
   section.layer-content
     section.layer-hero
-      load-img.layer-hero-img(src=getVersionedPath(hero.src) alt=hero.alt)
+      load-img.layer-hero-img(src=hero.src alt=hero.alt)
       span.layer-hero-img-txt= title
     section.layer-shade
     section.layer-block.layout-padding-horz-small.layout-padding-vert-large-bottom
@@ -11,7 +11,7 @@ block content
         section.layer.layer-white.style-shadow1.layout-padding-vert-bottom
           section.tile.tile-small
             section.tile-image
-              load-img.tile-img(src=getVersionedPath("/images/stars3.jpg") alt="An image of stars.")
+              load-img.tile-img(src="./images/stars3.jpg" alt="An image of stars.")
             footer.tile-footer.card-img-txt
               h2.tile-title Creator
           section.layout-padding-vert-small
@@ -32,7 +32,7 @@ block content
               section.card.card-float.card-hover
                 sction.card-main
                   section.card-image
-                    load-img.card-img(src=getVersionedPath('/images/windmill1.jpg') alt='An Image of a windmill.')
+                    load-img.card-img(src='./images/windmill1.jpg' alt='An Image of a windmill.')
                     section.card-img-txt
                       h3 About
                 section.card-content
@@ -42,7 +42,7 @@ block content
               section.card.card-float.card-hover
                 sction.card-main
                   section.card-image
-                    load-img.card-img(src=getVersionedPath('/images/city4.jpg') alt='An Image of a city.')
+                    load-img.card-img(src='./images/city4.jpg' alt='An Image of a city.')
                     section.card-img-txt
                       h3 Health Policies & Tech
                 section.card-content
@@ -54,7 +54,7 @@ block content
               section.card.card-float.card-hover
                 sction.card-main
                   section.card-image
-                    load-img.card-img(src=getVersionedPath('/images/city2.jpg') alt='An Image of a city.')
+                    load-img.card-img(src='./images/city2.jpg' alt='An Image of a city.')
                     section.card-img-txt
                       h3 Connections
                 section.card-content
@@ -66,7 +66,7 @@ block content
               section.card.card-float.card-hover
                 sction.card-main
                   section.card-image
-                    load-img.card-img(src=getVersionedPath('/images/windmill3.jpg') alt='An Image of a windmills.')
+                    load-img.card-img(src='./images/windmill3.jpg' alt='An Image of a windmills.')
                     section.card-img-txt
                       h3 References
                 section.card-content
