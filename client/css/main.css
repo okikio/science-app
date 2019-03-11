@@ -850,6 +850,7 @@ li.navbar-link-focus a:before {
 
 .layer-block {
     background-color: #131313;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' heigh…6v-6h6v-6h-6v-6h-6V6zm-6 12h6v6h-6v-6zm24 24h6v6h-6v-6z'></path></g></svg>");
     border-radius: 25px;
     position: relative;
     margin-top: -30vh;
