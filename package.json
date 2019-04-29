@@ -36,10 +36,10 @@
         "cookie-parser": "~1.4.3",
         "debug": "~2.6.9",
         "express": "4.16.3",
-        "heroku": "^7.16.0",
+        "heroku": "^7.22.4",
         "http-errors": "1.6.3",
         "morgan": "^1.9.1",
-        "pug": "2.0.0-beta11",
+        "pug": "^2.0.3",
         "underscore": "^1.9.1"
     },
     "devDependencies": {
