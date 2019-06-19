@@ -13,7 +13,6 @@
         "start": "NODE_ENV=production node ./app.min",
         "git-run": "node ./bin/git-run",
         "compile": "node ./bin/compile",
-        "heroku-prebuild": "add-apt-repository ppa:fkrull/deadsnakes",
         "build": "node ./bin/build"
     },
     "repository": {
@@ -36,9 +35,6 @@
         "url": "https://github.com/okikio/science-app/issues"
     },
     "optionalDependencies": {
-        "iltorb": "^2.0.9",
-        "node-gyp": "^5.0.0",
-        "node-zopfli-es": "^1.0.3"
     },
     "dependencies": {
         "@magento/shrink-ray": "^3.0.4",
@@ -48,6 +44,9 @@
         "express": "4.16.3",
         "helmet": "^3.18.0",
         "http-errors": "1.6.3",
+        "iltorb": "^2.0.9",
+        "node-gyp": "^5.0.0",
+        "node-zopfli-es": "^1.0.3",
         "morgan": "^1.9.1",
         "pug": "^2.0.4",
         "staticify": "^3.3.2",
