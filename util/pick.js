@@ -1,1 +1,1 @@
-module.exports=function(val1,val2){return Object.assign(val1)?val2:val1}
+module.exports=function(val1,val2){return typeof(val1)=="undefined"?val2:val1}
