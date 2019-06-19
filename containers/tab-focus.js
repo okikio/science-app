@@ -1,7 +1,6 @@
-var _ = require("underscore");
-var pick = require("../util/pick");
+let pick = require("../util/pick");
 
 // Shared similarites between tab-focus containers
-module.exports = function(tab) { 
-    return { "tab_focus": pick(tab, "Focus") }; 
+module.exports = function(tab) {
+    return { "tab_focus": pick(tab, "Focus") };
 };

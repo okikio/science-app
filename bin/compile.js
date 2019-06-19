@@ -2,7 +2,6 @@
 
 var fs = require("fs");
 var path = require('path');
-var util = require('util');
 var _ = require("underscore");
 
 // Stringify
@@ -17,7 +16,7 @@ let stringify = function(obj) {
         }, 4);
 
     return json.replace(/\"_\"/g,
-        function($) { return fns.shift(); });
+        function() { return fns.shift(); });
 };
 
 // Compile all components for routers into runnable js
@@ -30,11 +29,10 @@ let render = function(from, to) {
         filenames.forEach(function(dir) {
             var file = require(root + from + dir);
             var __dir = dir.replace(".js", "");
-            content[__dir] = {};
             for (var i in file)
-                content[__dir][i] = file[i];
+                content[i] = file[i];
 
-            // Write the contents of each component to it's compiled counter-part 
+            // Write the contents of each component to it's compiled counter-part
             fs.writeFile(root + to + '.js', "module.exports = " + stringify(content) + ";", function(err) {
                 if (err) { throw err; }
             });

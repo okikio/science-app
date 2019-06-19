@@ -1,19 +1,36 @@
-var _ = require("underscore");
-var title = require("./title");
-var tabs = require("./tabs");
-var tab_focus = require("./tab-focus");
-var footbar = require("./footbar");
-var hero = require("./hero");
-var content = require("./content");
-var css = require("./css");
-var js = require("./js");
+let { extend } = require("underscore");
+let title = require("./title");
+let tabs = require("./tabs");
+let tab_focus = require("./tab-focus");
+let footbar = require("./footbar");
+let hero = require("./hero");
+let content = require("./content");
+let css = require("./css");
+let js = require("./js");
 
 // Shared similarites between page containers
-module.exports = function(/* ...args */) {
-    var defaults = _.extend({}, title(), tabs(), tab_focus(), footbar(), hero(), content(), css(), js());
-    var containers = _.extend.apply(null, 
-        [{}].concat(_.toArray(arguments)) 
-    );
-    
-    return _.extend({}, defaults, containers);
+let fn = function(...args) {
+    let defaults = { ...title(), ...tabs(), ...tab_focus(), ...footbar(), ...hero(), ...content(), ...css(), ...js() };
+    let containers = extend(...[{}].concat(args));
+    return { ...defaults, ...containers };
 };
+
+extend(fn, {
+    "page": fn,
+    "title": title,
+    "tabs": tabs,
+    "tab_focus": tab_focus,
+    "footbar": footbar,
+    "hero": hero,
+    "content": content,
+    "css": css,
+    "js": js,
+
+    "layer": require("./layer"),
+    "details": require("./details"),
+    "src": require("./src"),
+    "tile": require("./tile"),
+    "img": require("./img"),
+});
+
+module.exports = fn;

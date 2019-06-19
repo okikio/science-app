@@ -1,14 +1,13 @@
-var _ = require("underscore");
-var layer = require("./layer");
+let { map } = require("underscore");
+let layer = require("./layer");
 
-// Shared similarites between content containers 
-module.exports = function(/* ... layers, ... */) {
-    var value = { 
+// Shared similarites between content containers
+module.exports = function(...args) {
+    return {
         "content": {
-            "layers": _.map(_.toArray(arguments), function (val) { 
-                return typeof val == "object" ? val : layer(val); 
-            }), 
+            "layers": map(args, function (val) {
+                return typeof val == "object" ? val : layer(val);
+            }),
         }
     };
-    return _.extend({}, value);
 };
