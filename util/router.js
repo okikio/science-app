@@ -42,7 +42,13 @@ var ParseRoutes = function(list) {
 module.exports = function(route) {
     return ParseRoutes(routers) [route] ();
 <<<<<<< HEAD
+<<<<<<< HEAD
 };
+=======
+};
+
+_.extend(module.exports, { ParseRoutes: ParseRoutes, Parser: Parser })
+>>>>>>> parent of 8ba55f7... Bug fixes, no longer caches offline
 =======
 };
 
