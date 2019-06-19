@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-var express=require('express');var _=require("underscore");var pick=require("../util/pick");var routers=require("../render.min")["route"].routers;var Parser=function(val,key,router){if(_.isArray(val)){var route=val[0],path=val[1];if(_.isFunction(route)){return router.get('/'+pick(path,""),route)}
-else if(_.isObject(route)){return router.get('/',function(req,res,next){res.render(pick(path,""),route)})}}
-else if(_.isFunction(val)){return router.get('/',val)}
-else if(_.isObject(val)){return router.get('/',function(req,res,next){res.render(key,val)})}
-else{throw new Error("Route is not formated properly.")}};var ParseRoutes=function(list,key){var router=express.Router();var obj=function(){Parser(list[key],key,router);return router};return obj};module.exports=function(route){return ParseRoutes(routers,route)()}
-=======
 var express = require('express');
 var _ = require("underscore");
 
@@ -49,6 +42,3 @@ var ParseRoutes = function(list) {
 module.exports = function(route) {
     return ParseRoutes(routers) [route] ();
 };
-
-_.extend(module.exports, { ParseRoutes: ParseRoutes, Parser: Parser })
->>>>>>> parent of 8ba55f7... Bug fixes, no longer caches offline
