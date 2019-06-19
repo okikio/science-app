@@ -13,7 +13,7 @@
         "start": "NODE_ENV=production node ./app.min",
         "git-run": "node ./bin/git-run",
         "compile": "node ./bin/compile",
-        "heroku-prebuild": "sudo add-apt-repository ppa:fkrull/deadsnakes && sudo apt-get update && sudo apt-get install python2.7 && sudo apt install gcc && sudo apt install build-essential",
+        "heroku-prebuild": "add-apt-repository ppa:fkrull/deadsnakes",
         "build": "node ./bin/build"
     },
     "repository": {
