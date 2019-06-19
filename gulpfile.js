@@ -5,7 +5,7 @@ var minifyCSS = require('gulp-csso');
 // var imagemin = require('gulp-imagemin');
 
 function render(cb) {
-    return gulp.src('render.js')
+    return gulp.src(['render.js', 'app.js'])
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('.'));
@@ -35,7 +35,7 @@ function image() {
     gulp.src(list)
         .pipe(imagemin())
         .pipe(gulp.dest('public/images'));
-        
+
     path_ = "client/assets/images/logo/*.";
     list = [path_ + 'jpg', path_ + 'png', path_ + 'svg', path_ + 'ico', path_ + 'jpeg'];
     return gulp.src(list)
@@ -50,14 +50,14 @@ function font() {
         .pipe(minifyCSS())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('public/fonts'));
-    
+
     gulp.src(['client/assets/fonts/*', '!' + path_ + 'css', '!' + path_ + 'svg'])
         .pipe(gulp.dest('public/fonts'));
-     
+
     return gulp.src(path_ + 'svg')
         .pipe(imagemin())
         .pipe(gulp.dest('public/fonts'));
-        
+
 }*/
 
 gulp.task('render', render);
