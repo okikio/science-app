@@ -66,4 +66,4 @@ gulp.task('render', render);
 gulp.task('css', css);
 gulp.task('js', js);
 
-gulp.task('default', function(cb) { js(); css(); render(cb); });
+gulp.task('default', function(cb) { js(); css(); render(cb); return cb(); });

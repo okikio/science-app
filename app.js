@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var _ = require("underscore");
 var compress = require('compression');
-var fs = require("fs");
 
 // List of routers 
 var Router = require('./util/router');
@@ -19,7 +18,7 @@ var errors = routes["errors"];
 
 // Compress/GZIP Server
 app.use(compress());
-app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1 day' }));
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: (60 * 60 * 24).toString() }));
 
 // View engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +32,7 @@ app.use(cookieParser());
 
 // Set route to routers 
 _.each(routeList, function(_router, route, obj) {
+    console.log(Router(_router));
     app.use(route, Router(_router));
 });
 
