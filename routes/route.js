@@ -115,7 +115,7 @@ module.exports = {
                     ...{ "space": true }
                 }
             )
-        ), footbar(false))],
+        ), footbar(false)), "index"],
     },
 
     // List of routes

@@ -33,10 +33,6 @@
     "bugs": {
         "url": "https://github.com/okikio/science-app/issues"
     },
-    "optionalDependencies": {
-        "iltorb": "~2.0.0",
-        "node-zopfli-es": "~1.0.3"
-    },
     "dependencies": {
         "@magento/shrink-ray": "^3.0.4",
         "compression": "1.7.2",
@@ -45,7 +41,10 @@
         "express": "4.16.3",
         "helmet": "^3.18.0",
         "http-errors": "1.6.3",
+        "iltorb": "^2.0.9",
         "morgan": "^1.9.1",
+        "node-gyp": "^5.0.0",
+        "node-zopfli-es": "^1.0.3",
         "pug": "^2.0.4",
         "staticify": "^3.3.2",
         "underscore": "^1.9.1"
@@ -63,5 +62,6 @@
         "heroku": "^7.25.0",
         "nodemon": "^1.19.1",
         "shelljs": "^0.8.3"
-    }
+    },
+    "optionalDependencies": {}
 }
