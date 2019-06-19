@@ -355,8 +355,7 @@ module.exports = {
                 },
                 "css": [],
                 "js": []
-            },
-            "index"
+            }
         ]
     },
     "route": {

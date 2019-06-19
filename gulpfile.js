@@ -1,11 +1,17 @@
 var gulp = require('gulp');
+let babel = require('gulp-babel');
+let autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var minifyCSS = require('gulp-csso');
 // var imagemin = require('gulp-imagemin');
 
 function render(cb) {
-    return gulp.src(['render.js', 'app.js'])
+    return gulp.src(['render.js', 'app.js'], { allowEmpty: true })
+        // ES5 app.js for uglifing
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('.'));
@@ -23,6 +29,7 @@ function js() {
 
 function css() {
     return gulp.src('client/css/*.css')
+        .pipe(autoprefixer())
         .pipe(minifyCSS())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('public/css'));
