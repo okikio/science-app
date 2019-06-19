@@ -26,7 +26,8 @@
         "site"
     ],
     "engines": {
-        "node": "11.2.0"
+        "node": "v12.4.0",
+        "npm": "6.9.0"
     },
     "author": "Okiki Ojo",
     "license": "GPL-3.0",
