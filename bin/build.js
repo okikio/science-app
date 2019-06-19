@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 var shell = require("shelljs");
-shell.exec("compile");
+shell.exec("npm run compile");
 shell.exec("gulp");
