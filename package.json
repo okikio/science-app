@@ -36,6 +36,7 @@
         "url": "https://github.com/okikio/science-app/issues"
     },
     "optionalDependencies": {
+        "iltorb": "^2.0.9",
         "node-gyp": "^5.0.0",
         "node-zopfli-es": "^1.0.3"
     },
@@ -49,7 +50,6 @@
         "http-errors": "1.6.3",
         "morgan": "^1.9.1",
         "pug": "^2.0.4",
-        "iltorb": "^2.0.9",
         "staticify": "^3.3.2",
         "underscore": "^1.9.1"
     },
