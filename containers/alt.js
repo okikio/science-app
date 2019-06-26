@@ -1,4 +1,4 @@
-var pick = require("../util/pick");
+let pick = require("../util/pick");
 
 // Shared similarites between alt containers
 module.exports = function(alt) {
