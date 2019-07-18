@@ -28,7 +28,7 @@ let normalizePort = val => {
 };
 
 // Get port from environment and store in Express.
-port = normalizePort(process.env.PORT || '8080');
+port = normalizePort(process.env.PORT || '8080');// Every 29 minutes
 
 // Local variables
 app.locals = {
@@ -117,3 +117,7 @@ server.on('listening', () => {
         'port ' + addr.port;
     debug('Listening on ' + bind);
 });
+
+setInterval(function() {
+    http.get("https://okikio.herokuapp.com");
+}, 1000 * 60 * 29);
