@@ -119,5 +119,5 @@ server.on('listening', () => {
 });
 
 setInterval(function() {
-    http.get("https://okikio.herokuapp.com");
+    http.get("https://app-science.herokuapp.com");
 }, 1000 * 60 * 29);
