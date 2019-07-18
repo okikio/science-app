@@ -82,6 +82,10 @@ app.use(function(err, req, res, next) {
 // Set port
 app.set('port', port);
 
+setInterval(function() {
+    http.get("https://app-science.herokuapp.com");
+}, 1000 * 60 * 29);
+
 // Create HTTP server.
 server = http.createServer(app);
 
@@ -117,7 +121,3 @@ server.on('listening', () => {
         'port ' + addr.port;
     debug('Listening on ' + bind);
 });
-
-setInterval(function() {
-    http.get("https://app-science.herokuapp.com");
-}, 1000 * 60 * 29);
