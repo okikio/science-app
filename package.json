@@ -43,6 +43,7 @@
         "http-errors": "1.6.3",
         "morgan": "^1.9.1",
         "pug": "^2.0.4",
+        "nodemon": "^1.19.3",
         "staticify": "^3.3.4",
         "underscore": "^1.9.1"
     },
@@ -57,7 +58,6 @@
         "gulp-rename": "^1.4.0",
         "gulp-uglify": "^3.0.2",
         "heroku": "^7.30.1",
-        "nodemon": "^1.19.3",
         "shelljs": "^0.8.3"
     }
 }
