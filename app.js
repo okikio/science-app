@@ -1,6 +1,6 @@
 let debug = require('debug')('app-science:server');
-let shrinkRay = require('@magento/shrink-ray');
 let cookieParser = require('cookie-parser');
+let compression = require('compression');
 let createError = require('http-errors');
 let { each } = require("underscore");
 let express = require('express');
@@ -28,7 +28,7 @@ let normalizePort = val => {
 };
 
 // Get port from environment and store in Express.
-port = normalizePort(process.env.PORT || '8080');// Every 29 minutes
+port = normalizePort(process.env.PORT || '3000');// Every 29 minutes
 
 // Local variables
 app.locals = {
@@ -39,7 +39,7 @@ app.locals = {
 app.use(helmet());
 
 // Compress/GZIP/Brotil Server
-app.use(shrinkRay());
+app.use(compression());
 app.use(staticify.middleware);
 app.use(function(req, res, next) {
     req.url = req.url.replace(/\/([^\/]+)\.[0-9a-f]+\.(css|js|jpg|png|gif|svg|cache)$/, '/$1.$2');
