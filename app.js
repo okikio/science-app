@@ -28,7 +28,7 @@ let normalizePort = val => {
 };
 
 // Get port from environment and store in Express.
-port = normalizePort(process.env.PORT || '3000');// Every 29 minutes
+port = normalizePort(process.env.PORT || '8080' || '3000');// Every 29 minutes
 
 // Local variables
 app.locals = {

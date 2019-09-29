@@ -10,7 +10,7 @@
     },
     "scripts": {
         "dev": "nodemon ./app",
-        "start": "NODE_ENV=production node ./app.min",
+        "start": "nodemon ./app.min",
         "git-run": "node ./bin/git-run",
         "compile": "node ./bin/compile",
         "build": "node ./bin/build"
