@@ -45,7 +45,7 @@
         "pug": "^2.0.4",
         "nodemon": "^1.19.3",
         "staticify": "^3.3.4",
-        "underscore": "^1.9.1"
+        "underscore": "^1.9.2"
     },
     "devDependencies": {
         "@babel/core": "^7.6.2",
