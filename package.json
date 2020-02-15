@@ -43,7 +43,7 @@
         "http-errors": "1.7.3",
         "morgan": "^1.9.1",
         "pug": "^2.0.4",
-        "nodemon": "^1.19.3",
+        "nodemon": "^2.0.2",
         "staticify": "^3.3.4",
         "underscore": "^1.9.2"
     },
